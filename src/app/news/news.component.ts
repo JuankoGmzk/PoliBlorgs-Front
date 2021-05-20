@@ -15,6 +15,8 @@ export class NewsComponent implements OnInit {
   currentNews = null;
   msgError = '';
   closeModal: string;
+  currentIndex = -1;
+
 
 
 
