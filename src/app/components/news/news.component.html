@@ -52,8 +52,15 @@
             <div class="submit-form">
                 <div class="form-group">
                     <label for="id">id</label>
-                    <input disabled type="text" class="form-control" id="id" [(ngModel)]="currentNews.id"
-                        name="id" />
+                    <input
+                    disabled 
+                    type="text" 
+                    class="form-control" 
+                    id="id" 
+                    required
+                    [(ngModel)]="currentNews.id"
+                    name="id" 
+                    />
                 </div>
                 <div class="form-group">
                     <label for="author">Author</label>
@@ -84,17 +91,3 @@
             (click)="modal.close('Save click')">Save</button>
     </div>
 </ng-template>
-<hr>
-<div class="card">
-    <div center class="row">
-        <div class="col-md-3">
-            <h4>Lista de noticias</h4>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let new of news; let i = index" [class.active]="i == currentIndex"
-                    (click)="setActiveBook(bookId, i)">
-                    <div class="col">{{new.title}}</div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>

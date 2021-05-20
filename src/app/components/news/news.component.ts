@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { news } from '../models/news';
-import { NewsService } from '../services/news.service';
+import { news } from 'src/app/models/news';
+import { NewsService } from 'src/app/services/news.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -15,9 +15,7 @@ export class NewsComponent implements OnInit {
   currentNews = null;
   msgError = '';
   closeModal: string;
-  currentIndex = -1;
-
-
+ //test mi loco
 
 
   constructor(private newsService: NewsService, private modalService: NgbModal) { }
