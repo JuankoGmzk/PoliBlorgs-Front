@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { news } from '../models/news';
+import { news } from '../../models/news';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class NewsService {
 
-  private url = 'http://localhost:8080/api/v1/News'
+  private url = 'http://localhost:8080/api/v1/News';
 
   constructor(private http: HttpClient) {
 
