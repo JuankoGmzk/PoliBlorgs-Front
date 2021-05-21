@@ -58,7 +58,7 @@ export class NewsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentNews = data;
-          //console.log(data);
+          console.log(data);
         },
         error => {
           this.msgError =  error.message +' \n '+ error.error.message;

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import { NewsComponent } from './news/news.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NewsComponent } from './news/news.component';
-import {HttpClientModule} from '@angular/common/http'
+
 
 
 @NgModule({
@@ -13,7 +16,9 @@ import {HttpClientModule} from '@angular/common/http'
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

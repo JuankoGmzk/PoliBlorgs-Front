@@ -1,6 +1,6 @@
 <div class="container">
     <div class="card">
-        <h3 class="text-center">Lista de noticias</h3>
+        <h3 class="text-center">Lista de noticiass</h3>
         <div class="card-body">
             <div class="form-group form-inline">
                 Buscar noticia por nombre:
@@ -51,10 +51,11 @@
         <div style="width: 400px; margin: auto;">
             <div class="submit-form">
                 <div class="form-group">
-                    <label for="id">id</label>
-                    <input disabled type="text" class="form-control" id="id" [(ngModel)]="currentNews.id"
-                        name="id" />
+                    <label for="idx">id</label>
+                    <input disabled type="text" class="form-control" id="idx" required [(ngModel)]="currentNews.id"
+                        name="idx" />
                 </div>
+                {{currentNews.id}}
                 <div class="form-group">
                     <label for="author">Author</label>
                     <input type="text" class="form-control" id="author" required [(ngModel)]="currentNews.author"
