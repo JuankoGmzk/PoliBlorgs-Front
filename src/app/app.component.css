@@ -1,0 +1,152 @@
+body {
+    background: rgb(255, 255, 255);
+
+}
+
+.barra {
+    background: rgb(83, 208, 170);
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.dropdown-menu{
+    margin: 17px;
+    background: gray;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.menuperfil{
+    color:rgb(255, 255, 255);
+}
+
+.menuperfil:focus{
+    background: rgb(47, 140, 89);
+    box-shadow: 0 0 10px rgb(91, 95, 94);
+}
+
+.cerrar:hover{
+    background: rgb(140, 72, 47);
+    box-shadow: 0 0 10px rgb(82, 84, 83);
+}
+
+/*BARRA LATERAL*/
+.barra-lateral{
+    background:#252121;
+    color: #ffff;
+    min-width: 180px;
+    min-height: 100vh;
+}
+
+.barra-lateral a{
+    color: #ffff;
+}
+
+/*ESTILO MENU*/
+
+.barra-lateral .menu a{
+    display: block;
+    padding: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    border-bottom: 1px rgba(35, 232, 58, 0.782);
+}
+
+
+.barra-lateral .menu a:hover{
+    background-color: #033C5D;
+    text-decoration: none;
+}
+
+.barra-lateral .menu{
+    border-top: 5px rgb(255, 255, 255) solid;
+    
+}
+
+.barra-lateral .menu a svg{
+    margin-right: 20px;
+}
+
+/* MAIN*/
+
+.main{
+    padding-top: 40px;
+}
+
+.main .columna{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/*mediaquerys*/
+
+@media screen and (max-width:1300px) {
+    .barra-lateral{
+        min-width: auto;
+    }
+
+    .barra-lateral.menu a span{
+        display: none;
+    }
+
+    .barra-lateral.menu a svg{
+        margin: 0;
+    }
+    
+    .barra{
+        min-width: auto;
+    }
+
+    .dropdown-menu{
+        margin: 20px -79px 0px;
+    }
+    
+}
+
+@media screen and (max-width:575px){
+    .barra-lateral{
+        min-width: auto;
+    }
+
+    .barra-lateral .menu a{
+        display: inline-block;
+        border-bottom: none;
+    }
+
+    .dropdown-menu{
+        width:20px -78px 0px;
+    }
+
+    body{
+        background: #d3d3d3;
+        font-size:16px;
+        overflow: visible;        
+    }
+}
+
+.menu{
+    border-top: 5px #ffff solid;
+}
+
+@media screen and (max-width:575px){
+    .barra-lateral{
+        height:auto;
+    }
+
+    .barra-lateral .menu a{
+        display: inline-block;
+        border-bottom:none;
+    }
+
+    .dropdown-menu{
+        margin: 20px -78px 0px;
+    }
+
+    body{
+        font-size: 16px;
+        overflow: visible;
+    }
+}
+
+
