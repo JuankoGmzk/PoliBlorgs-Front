@@ -11,7 +11,7 @@
                     <th>Codigo institucional</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Contraseña</th>
+                    <th>UserName</th>
                     <th>Rol</th>
                     <th>Actividad</th>
 
@@ -27,16 +27,15 @@
                         <td>{{usuario.name}}</td>
                         <td>{{usuario.lastName}}</td>
                         <td>{{usuario.userName}}</td>
-                        <td>{{usuario.password}}</td>
                         <td>{{usuario.roles}}</td>
                         <td>{{usuario.active}}</td>
-
 
                         <td>
                             <button class="btn btn-info btn-sm" (click)="triggerModal(modalData, usuario)">
                                 Edit </button>
                             &nbsp;
-                            <button class='btn btn-danger btn-sm' (click)="deleteNewsById(usuario.id)">
+                            <button class='btn btn-danger btn-sm' (click)="deleteNewsById(usuario.databaseId)">
+
                                 Delete</button>
                         </td>
                     </tr>
@@ -59,28 +58,43 @@
         <div style="width: 400px; margin: auto;">
             <div class="submit-form">
                 <div class="form-group">
-                    <label for="idx">id</label>
-                    <input disabled type="text" class="form-control" id="idx" required [(ngModel)]="currentNews.id"
+                    <label for="idx">id mongo</label>
+                    <input disabled type="text" class="form-control" id="idx" required [(ngModel)]="currentUser.databaseId"
                         name="idx" />
                 </div>
                 <div class="form-group">
-                    <label for="author">Author</label>
-                    <input type="text" class="form-control" id="author" required [(ngModel)]="currentNews.author"
+                    <label for="author">Correo</label>
+                    <input type="text" class="form-control" id="author" required [(ngModel)]="currentUser.email"
                         name="author" />
                 </div>
                 <div class="form-group">
-                    <label for="date">Fecha</label>
-                    <input type="text" class="form-control" id="date" required [(ngModel)]="currentNews.date"
+                    <label for="date">Codigo institucional	</label>
+                    <input type="text" class="form-control" id="date" required [(ngModel)]="currentUser.institutionalCode"
                         name="date" />
                 </div>
                 <div class="form-group">
-                    <label for="title">Titulo</label>
-                    <input type="text" class="form-control" id="title" required [(ngModel)]="currentNews.title"
+                    <label for="title">Nombre</label>
+                    <input type="text" class="form-control" id="title" required [(ngModel)]="currentUser.name"
                         name="title" />
                 </div>
                 <div class="form-group">
-                    <label for="body">Noticia</label>
-                    <input type="text" class="form-control" id="body" required [(ngModel)]="currentNews.body"
+                    <label for="body">Apellido</label>
+                    <input type="text" class="form-control" id="body" required [(ngModel)]="currentUser.lastName"
+                        name="body" />
+                </div>
+                <div class="form-group">
+                    <label for="body">UserName</label>
+                    <input type="text" class="form-control" id="body" required [(ngModel)]="currentUser.userName"
+                        name="body" />
+                </div>
+                <div class="form-group">
+                    <label for="body">Rol</label>
+                    <input type="text" class="form-control" id="body" required [(ngModel)]="currentUser.roles"
+                        name="body" />
+                </div>
+                <div class="form-group">
+                    <label for="body">Actividad</label>
+                    <input type="text" class="form-control" id="body" required [(ngModel)]="currentUser.active"
                         name="body" />
                 </div>
             </div>

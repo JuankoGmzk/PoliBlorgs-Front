@@ -1,5 +1,6 @@
 export class User {
 
+    id:String;
     email:String;
     institutionalCode:String;
     name:String;

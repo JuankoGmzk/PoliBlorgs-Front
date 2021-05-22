@@ -20,6 +20,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCustomers().subscribe((data: User[]) => {
       this.user = data;
+      console.log(data)
     })
   }
 
@@ -59,6 +60,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteNewsById(val1: string): void {
+    console.log("Estamos entrando acá? -- >  ",val1);
     this.userService.delete(val1)
       .subscribe(
         data => {
