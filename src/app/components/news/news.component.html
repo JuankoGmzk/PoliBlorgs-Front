@@ -12,6 +12,8 @@
                     <th>Fecha</th>
                     <th>Titulo</th>
                     <th>Noticia</th>
+                    <th>Comentarios</th>
+
 
                     <th></th>
                 </thead>
@@ -30,6 +32,7 @@
                             &nbsp;
                             <button class='btn btn-danger btn-sm' (click)="deleteNewsById(new.id)">
                                 Delete</button>
+                           
                         </td>
                     </tr>
                 </tbody>
@@ -80,7 +83,7 @@
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="updateBook()"
+        <button type="button" class="btn btn-success" (click)="postcorreo()" (click)="updateBook()"
             (click)="modal.close('Save click')">Save</button>
     </div>
 </ng-template>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { news } from 'src/app/models/news';
 import { NewsService } from 'src/app/services/News/news.service';
+import { CorreoService } from 'src/app/services/Mail/correo.service';
+import { correo } from 'src/app/models/correo';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -12,13 +14,18 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class NewsComponent implements OnInit {
 
   news: news[];
+  correo = new correo();
+  
+
   currentNews = null;
   msgError = '';
   closeModal: string;
+  submitted = false;
+
  //test mi loco
 
 
-  constructor(private newsService: NewsService, private modalService: NgbModal) { }
+  constructor(private newsService: NewsService, private modalService: NgbModal, private correoService: CorreoService) { }
 
   ngOnInit(): void {
     this.newsService.getCustomers().subscribe((data: news[]) => {
@@ -27,6 +34,37 @@ export class NewsComponent implements OnInit {
 
     });
   }
+
+
+
+
+
+  postcorreo(): void {
+    const data = {
+
+      mailFrom: this.correo.mailFrom,
+      mailTo: this.correo.mailTo,
+      mailSubject: this.correo.mailSubject,
+      mailContent: this.correo.mailContent
+    };
+    //console.log(data);
+
+    this.correoService.EnviarCorreo(data)
+      .subscribe(
+        response => {
+          this.submitted = true;
+          console.log(response);
+        },
+        error => {
+          this.msgError = error.message + ' \n ' + error.error.message;
+          console.log(error);
+        });
+  }
+
+
+
+
+
 
   triggerModal(content:any, val:news) {
     console.log("Val --> ",val);

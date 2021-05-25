@@ -28,16 +28,16 @@ export class AddNewsComponent implements OnInit {
     };
 
     this.newsservice.create(data)
-    .subscribe(
+      .subscribe(
         response => {
-          this.submitted=true;
+          this.submitted = true;
           console.log(response);
         },
         error => {
-          this.msgError  = error.message +' \n '+ error.error.message;
+          this.msgError = error.message + ' \n ' + error.error.message;
           console.log(error);
         });
-      }
+  }
 
   newBook() {
     this.submitted = false;

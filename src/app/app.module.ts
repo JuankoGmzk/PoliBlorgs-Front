@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddUsersComponent } from './components/add-users/add-users.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -21,7 +23,9 @@ import { AddUsersComponent } from './components/add-users/add-users.component';
     NewsComponent,
     AddNewsComponent,
     UsersComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    LoginComponent,
+    NavbarComponent
     ],
   imports: [
     BrowserModule,
