@@ -1,32 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { news } from '../../models/news';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { coments } from '../../models/coments';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewsService {
+export class ComentService {
 
-  private url = 'http://localhost:8080/api/v1/News';
+
+  private url = 'http://localhost:8080/api/v1/Coment';
 
   constructor(private http: HttpClient) {
 
   }
 
+  getComentsById(id: String): Observable<coments> {
+    return this.http.get<coments>(`${this.url}/${id}`);
+  }
+
+
+
+
   create(data: any): Observable<any> {
     return this.http.post(`${this.url}`, data)
   }
 
+
   
 
-  getCustomers(): Observable<news[]> {
-    return this.http.get<news[]>(`${this.url}`);
+  get(): Observable<coments[]> {
+    return this.http.get<coments[]>(`${this.url}`);
   }
 
-  get(id: String): Observable<news> {
-    return this.http.get<news>(`${this.url}/${id}`);
-  }
+  
+
+
 
 
   delete(id: string): Observable<any> {
@@ -37,5 +47,7 @@ export class NewsService {
   update(id: string, data: any): Observable<any> {
     return this.http.put(`${this.url}/${id}`, data);
   }
+
+
 
 }

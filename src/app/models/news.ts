@@ -5,4 +5,5 @@ export class news {
 	 date : String;
 	 title : String;
 	 body : String;
+	 newUpdate : Boolean;
 }
