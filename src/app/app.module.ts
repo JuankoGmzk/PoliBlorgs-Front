@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddUsersComponent } from './components/add-users/add-users.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -25,7 +26,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UsersComponent,
     AddUsersComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
     ],
   imports: [
     BrowserModule,

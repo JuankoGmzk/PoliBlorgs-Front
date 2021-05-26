@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { news } from 'src/app/models/news';
+import { coments } from 'src/app/models/coments';
 import { NewsService } from 'src/app/services/News/news.service';
+import { ComentService } from 'src/app/services/Coments/coment.service';
 import { CorreoService } from 'src/app/services/Mail/correo.service';
 import { correo } from 'src/app/models/correo';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -14,26 +16,29 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class NewsComponent implements OnInit {
 
   news: news[];
+  coments : news[];
   correo = new correo();
-  
+
 
   currentNews = null;
   msgError = '';
   closeModal: string;
   submitted = false;
 
- //test mi loco
+  //test mi loco
 
 
-  constructor(private newsService: NewsService, private modalService: NgbModal, private correoService: CorreoService) { }
+  constructor(private newsService: NewsService, private modalService: NgbModal, private correoService: CorreoService, private comentService: ComentService) { }
 
   ngOnInit(): void {
     this.newsService.getCustomers().subscribe((data: news[]) => {
-
+      console.log(this.news = data)
       this.news = data;
 
     });
-  }
+
+}
+
 
 
 
@@ -66,13 +71,13 @@ export class NewsComponent implements OnInit {
 
 
 
-  triggerModal(content:any, val:news) {
-    console.log("Val --> ",val);
-    
+  triggerModal(content: any, val: news) {
+    console.log("Val --> ", val);
+
     this.currentNews = val
-    console.log("This --> ",this.currentNews.id);
+    console.log("This --> ", this.currentNews.id);
     this.retrieveBook(this.currentNews.id)
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
@@ -85,11 +90,25 @@ export class NewsComponent implements OnInit {
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
       return 'by clicking on a backdrop';
     } else {
-      return  `with: ${reason}`;
+      return `with: ${reason}`;
     }
   }
 
-  retrieveBook(val:string): void {
+  getComentsById(val: String): void {
+    this.comentService.getComentsById(val).
+      subscribe(
+        data => {
+          this.currentNews = data;
+          console.log("ESta es el find --- >",data);
+        },
+        error => {
+          this.msgError = error.message + ' \n ' + error.error.message;
+          console.log(error);
+        });
+  }
+
+
+  retrieveBook(val: string): void {
     this.newsService.get(val)
       .subscribe(
         data => {
@@ -97,7 +116,7 @@ export class NewsComponent implements OnInit {
           console.log(data);
         },
         error => {
-          this.msgError =  error.message +' \n '+ error.error.message;
+          this.msgError = error.message + ' \n ' + error.error.message;
           console.log(error);
         });
   }
@@ -119,8 +138,9 @@ export class NewsComponent implements OnInit {
     this.newsService.update(this.currentNews.id, this.currentNews)
       .subscribe(
         data => {
+          console.log("Esta es la data del update ", data);
           this.refreshList();
-          console.log(data);
+
         },
         error => {
           console.log(error);
