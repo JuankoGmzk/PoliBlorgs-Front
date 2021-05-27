@@ -47,12 +47,16 @@
                     </tr>
                 </tbody>
             </table>
-
+<br><br><br><br>
             <table class="table table-striped">
                 <thead>
-                    <th>Comentarios</th>
-
                     <th></th>
+                    <th>Comentarios</th>
+                    <th>Id</th>
+                    <th>Comentario</th>
+
+
+          
                 </thead>
                 <tbody>
 
@@ -64,6 +68,7 @@
                         </td>
 
                         <td>{{coment.id}}</td>
+
                         <td>{{coment.idUser}}</td>
                         <td>{{coment.body}}</td>
                     </tr>
@@ -130,7 +135,7 @@
 
 <ng-template #modalData let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Edit Coment</h4>
+        <h4 class="modal-title" id="modal-basic-title2">Edit Coment</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">×</span>
         </button>

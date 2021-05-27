@@ -42,7 +42,7 @@ export class NewsComponent implements OnInit {
     });
 
 
-}
+} 
 
 
   postcorreo(): void {
@@ -91,6 +91,18 @@ export class NewsComponent implements OnInit {
     console.log("This --> ", this.currentNews.id);
     this.retrieveBook(this.currentNews.id)
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
+      this.closeModal = `Closed with: ${res}`;
+    }, (res) => {
+      this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
+    });
+  }
+
+  triggerModalComent(content: any, val: coments) {
+    console.log("Val --> ", val);
+
+    this.currentNews = val
+    
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title2' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
