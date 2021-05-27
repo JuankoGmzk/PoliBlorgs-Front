@@ -16,28 +16,17 @@ export class ComentService {
 
   }
 
-  getComentsById(id: String): Observable<coments> {
-    return this.http.get<coments>(`${this.url}/${id}`);
+  getComentsById(idUser: String): Observable<coments> {
+    return this.http.get<coments>(`${this.url}/${idUser}`);
   }
-
-
-
 
   create(data: any): Observable<any> {
     return this.http.post(`${this.url}`, data)
   }
 
-
-  
-
   get(): Observable<coments[]> {
     return this.http.get<coments[]>(`${this.url}`);
   }
-
-  
-
-
-
 
   delete(id: string): Observable<any> {
     return this.http.delete(`${this.url}/${id}`);

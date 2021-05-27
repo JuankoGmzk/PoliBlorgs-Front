@@ -32,7 +32,10 @@
                         <td>{{new.newUpdate}}</td>
                         <td></td>
 
-                        
+
+
+
+
                         <td>
                             <button class="btn btn-info btn-sm" (click)="triggerModal(modalData, new)">
                                 Edit </button>
@@ -44,6 +47,29 @@
                     </tr>
                 </tbody>
             </table>
+
+            <table class="table table-striped">
+                <thead>
+                    <th>Comentarios</th>
+
+                    <th></th>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let coment of coments">
+
+                        <td>
+                            <button class="btn btn-info btn-sm" (click)="triggerModalComent(modalData, coment)">
+                                Comentar </button>
+                        </td>
+
+                        <td>{{coment.id}}</td>
+                        <td>{{coment.idUser}}</td>
+                        <td>{{coment.body}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -95,7 +121,35 @@
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success"  (click)="postcorreo()" (click)="updateBook() "
+        <button type="button" class="btn btn-success" (click)="postcorreo()" (click)="updateBook() "
+            (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+
+<!--MENU COMENTARIO-->
+
+<ng-template #modalData let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Edit Coment</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <div style="width: 400px; margin: auto;">
+            <div class="submit-form">
+                <div class="form-group">
+                    <label for="coment">Comentario</label>
+                    <input disabled type="text" class="form-control" id="coment" required [(ngModel)]="currentComent.coment"
+                        name="coment" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="postcorreo()" (click)="updateBook() "
             (click)="modal.close('Save click')">Save</button>
     </div>
 </ng-template>

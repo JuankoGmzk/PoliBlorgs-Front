@@ -16,11 +16,12 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class NewsComponent implements OnInit {
 
   news: news[];
-  coments : news[];
+  coments : coments[];
   correo = new correo();
 
 
   currentNews = null;
+  currentComent = null;
   msgError = '';
   closeModal: string;
   submitted = false;
@@ -29,19 +30,19 @@ export class NewsComponent implements OnInit {
 
 
   constructor(private newsService: NewsService, private modalService: NgbModal, private correoService: CorreoService, private comentService: ComentService) { }
-
+  
   ngOnInit(): void {
+    this.comentService.get().subscribe((data: coments[]) => { ///NECESARIO PARA PODER VER LOS DATOS
+      console.log(this.coments = data)
+      this.coments = data;
+    });
     this.newsService.getCustomers().subscribe((data: news[]) => {
       console.log(this.news = data)
       this.news = data;
-
     });
 
+
 }
-
-
-
-
 
 
   postcorreo(): void {
@@ -66,6 +67,18 @@ export class NewsComponent implements OnInit {
         });
   }
 
+/*   updateComent(): void {
+    this.newsService.update(this.currentNews.id, this.currentNews)
+      .subscribe(
+        data => {
+          console.log("Esta es la data del update ", data);
+          this.refreshList();
+
+        },
+        error => {
+          console.log(error);
+        });
+  } */
 
 
 
@@ -98,7 +111,7 @@ export class NewsComponent implements OnInit {
     this.comentService.getComentsById(val).
       subscribe(
         data => {
-          this.currentNews = data;
+          this.currentComent = data;
           console.log("ESta es el find --- >",data);
         },
         error => {
@@ -153,3 +166,7 @@ export class NewsComponent implements OnInit {
     this.ngOnInit();
   }
 }
+function ngOnInit2() {
+  throw new Error('Function not implemented.');
+}
+
